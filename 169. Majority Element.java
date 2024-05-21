@@ -1,5 +1,4 @@
-import java.util.HashMap;
-
+// Solution 1 - Time = O(n) , Space = O(n)
 class Solution {
 
     public int majorityElement(int[] nums) {
@@ -18,4 +17,19 @@ class Solution {
         return result;
     }
 
+}
+
+// Solution 2 - Time = O(n) , Space = O(1)
+class Solution {
+    public int majorityElement(int[] nums) {
+        int result = 0;
+        int count = 0;
+        for(int element: nums){
+            if(count == 0){
+                result = element;
+            }
+            count += (element == result) ? 1 : -1; 
+        }
+        return result;
+    }
 }
