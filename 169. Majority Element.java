@@ -1,25 +1,21 @@
 // Solution 1 - Time = O(n) , Space = O(n)
-class Solution {
 
+class Solution {
     public int majorityElement(int[] nums) {
         int result = 0;
         HashMap<Integer, Integer> map = new HashMap<>();
         for(int element: nums){
-            if(map.containsKey(element)){
-                map.put(element, map.get(element)+1);
-            } else{
-                map.put(element, 1);
-            }
+            map.put(element, map.getOrDefault(element, 0) + 1);
             if(map.get(element) > nums.length/2){
-                result = element;
+                return element;
             }
         }
-        return result;
+        return -1;
     }
-
 }
 
 // Solution 2 - Time = O(n) , Space = O(1)
+
 class Solution {
     public int majorityElement(int[] nums) {
         int result = 0;
